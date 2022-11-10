@@ -6,6 +6,7 @@
 
 [node name="Player" parent="." instance=ExtResource("2_pxpwn")]
 position = Vector2(216, 319)
+gravity_scale = 0.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(577, 321)
