@@ -1,9 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7jnb8nv3rfb2"]
 
-[ext_resource type="Texture2D" uid="uid://b8ysxh6fynqxo" path="res://icon.svg" id="1_tmse6"]
+[ext_resource type="PackedScene" uid="uid://cvb06ywsh1lwc" path="res://Player/Player.tscn" id="2_pxpwn"]
 
 [node name="Level" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1009, 148)
-texture = ExtResource("1_tmse6")
+[node name="Player" parent="." instance=ExtResource("2_pxpwn")]
+position = Vector2(216, 319)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 321)
