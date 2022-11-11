@@ -3,20 +3,17 @@
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_riucj"]
 [ext_resource type="Texture2D" uid="uid://x1tc8n2kslj7" path="res://Sprites/goose_resting.png" id="2_g3iia"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7wmp1"]
-radius = 8.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2cnt"]
+radius = 7.0
 
 [node name="Player" type="RigidBody2D"]
 script = ExtResource("1_riucj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -102)
-scale = Vector2(6, 6)
+position = Vector2(-9, -10)
 texture = ExtResource("2_g3iia")
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(53, -44)
-scale = Vector2(6, 6)
-shape = SubResource("CircleShape2D_7wmp1")
+shape = SubResource("CircleShape2D_i2cnt")

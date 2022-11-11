@@ -4,28 +4,28 @@
 [ext_resource type="Texture2D" uid="uid://cumdcw22ysj16" path="res://Sprites/goose floor 1.png" id="2_qwdj6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qui8c"]
-size = Vector2(180, 40.6667)
+size = Vector2(180, 53.3334)
 
 [node name="Level" type="Node2D"]
 position = Vector2(-37.542, 632)
 
 [node name="Player" parent="." instance=ExtResource("2_pxpwn")]
-position = Vector2(529.542, 328)
+position = Vector2(79.542, -481)
 gravity_scale = 0.0
+FLAP_FORCE = -300
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(577.542, 328)
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(128.542, -473)
 current = true
+zoom = Vector2(4, 4)
 editor_draw_limits = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="ground" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(577.542, 1082)
-scale = Vector2(6, 6)
-shape = SubResource("RectangleShape2D_qui8c")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(577.542, 328)
-scale = Vector2(6, 6)
+[node name="Sprite2D" type="Sprite2D" parent="ground"]
+position = Vector2(128.542, -473)
 texture = ExtResource("2_qwdj6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
+position = Vector2(128.542, -341)
+shape = SubResource("RectangleShape2D_qui8c")
