@@ -3,6 +3,7 @@ extends RigidBody2D
 
 # '@export' makes the variable accessible from the Inspector--the info on the right when you click on the Player node
 @export var FLAP_FORCE = -400
+var Pole = preload("res://Levels/Poles.tscn")
 
 # godot 4 uses radians for rotation, so we convert the degrees to radians using deg_to_rad() (there's probably a better way of doing this)
 const MAX_ROTATION = deg_to_rad(-30.0)
@@ -29,3 +30,13 @@ func _physics_process(_delta):						# _physics_process() is a built-in function 
 func flap():
 	linear_velocity.y = FLAP_FORCE
 	angular_velocity = -8.0
+
+func Pole_reset():
+	var Pole_instance = Pole.instance()
+	Pole_instance.position = Vector2(450 + position.x, randi_range(-60-472,60-472))
+	get_parent().call_deferred("add_child",Pole_instance)
+func _on_resetter_body_entered(body):
+	print(body.name)
+	if body.name == "Poles":
+		body.queue_free()
+		Pole_reset()

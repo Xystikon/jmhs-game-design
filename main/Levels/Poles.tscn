@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://chyx1sr1k6mko"]
+
+[ext_resource type="Script" path="res://Levels/Pole.gd" id="1_p7cuj"]
+[ext_resource type="Texture2D" uid="uid://barsylh3w0rdc" path="res://Poles/TestPole.png" id="2_mjswl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1dtvr"]
+size = Vector2(32, 320)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57w2n"]
+size = Vector2(20, 80)
+
+[node name="Poles" type="Node2D"]
+
+[node name="PoleNode" type="Node2D" parent="."]
+
+[node name="Pole" type="StaticBody2D" parent="PoleNode"]
+script = ExtResource("1_p7cuj")
+
+[node name="UpperPoleSprite" type="Sprite2D" parent="PoleNode/Pole"]
+position = Vector2(0, -200)
+scale = Vector2(2, 20)
+texture = ExtResource("2_mjswl")
+
+[node name="UpperPoleColl" type="CollisionShape2D" parent="PoleNode/Pole"]
+position = Vector2(0, -200)
+shape = SubResource("RectangleShape2D_1dtvr")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="LowerPoleSprite" type="Sprite2D" parent="PoleNode/Pole"]
+position = Vector2(0, 200)
+scale = Vector2(2, 20)
+texture = ExtResource("2_mjswl")
+
+[node name="LowerPoleColl" type="CollisionShape2D" parent="PoleNode/Pole"]
+position = Vector2(0, 200)
+shape = SubResource("RectangleShape2D_1dtvr")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="PointArea" type="Area2D" parent="PoleNode/Pole"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoleNode/Pole/PointArea"]
+shape = SubResource("RectangleShape2D_57w2n")

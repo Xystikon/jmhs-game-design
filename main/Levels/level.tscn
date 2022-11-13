@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7jnb8nv3rfb2"]
+[gd_scene load_steps=6 format=3 uid="uid://c7jnb8nv3rfb2"]
 
 [ext_resource type="PackedScene" uid="uid://cvb06ywsh1lwc" path="res://Player/Player.tscn" id="2_pxpwn"]
 [ext_resource type="Texture2D" uid="uid://cumdcw22ysj16" path="res://Sprites/goose floor 1.png" id="2_qwdj6"]
+[ext_resource type="PackedScene" uid="uid://chyx1sr1k6mko" path="res://Levels/Poles.tscn" id="3_22chw"]
+[ext_resource type="Script" path="res://Levels/PoleController.gd" id="4_r5yle"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qui8c"]
 size = Vector2(180, 53.3334)
@@ -29,3 +31,23 @@ texture = ExtResource("2_qwdj6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground"]
 position = Vector2(128.542, -341)
 shape = SubResource("RectangleShape2D_qui8c")
+
+[node name="Poles" parent="." instance=ExtResource("3_22chw")]
+position = Vector2(493.542, -480)
+metadata/_edit_group_ = true
+
+[node name="Poles2" parent="." instance=ExtResource("3_22chw")]
+position = Vector2(685.542, -560)
+metadata/_edit_group_ = true
+
+[node name="Poles3" parent="." instance=ExtResource("3_22chw")]
+position = Vector2(837.542, -448)
+metadata/_edit_group_ = true
+
+[node name="Poles4" parent="." instance=ExtResource("3_22chw")]
+position = Vector2(957.542, -560)
+metadata/_edit_group_ = true
+
+[node name="PoleController" type="Node2D" parent="."]
+position = Vector2(53.542, -256)
+script = ExtResource("4_r5yle")
