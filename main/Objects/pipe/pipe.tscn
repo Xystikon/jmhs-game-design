@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://daanxbdf0dnq4"]
+
+[ext_resource type="Script" path="res://Objects/pipe/pipe.gd" id="1_npero"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sp3wq"]
+size = Vector2(14, 159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujof1"]
+size = Vector2(14, 160)
+
+[node name="pipe" type="StaticBody2D"]
+script = ExtResource("1_npero")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_sp3wq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ujof1")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5xq0fla2im1e"]
+
+[ext_resource type="Texture2D" uid="uid://cumdcw22ysj16" path="res://Levels/level01/goose floor 1.png" id="1_tb8i4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qui8c"]
+size = Vector2(180, 53.3334)
+
+[node name="ground" type="StaticBody2D"]
+
+[node name="sprite" type="Sprite2D" parent="."]
+position = Vector2(91, 159)
+texture = ExtResource("1_tb8i4")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(91, 291)
+shape = SubResource("RectangleShape2D_qui8c")
