@@ -1,16 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://cvb06ywsh1lwc"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_riucj"]
-[ext_resource type="Texture2D" uid="uid://b8ysxh6fynqxo" path="res://icon.svg" id="2_2pb2n"]
+[ext_resource type="Texture2D" uid="uid://x1tc8n2kslj7" path="res://Sprites/goose_resting.png" id="2_g3iia"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5hmbo"]
-radius = 63.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_i2cnt"]
+radius = 7.0
 
 [node name="Player" type="RigidBody2D"]
 script = ExtResource("1_riucj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_2pb2n")
+texture_filter = 1
+position = Vector2(-9, -10)
+texture = ExtResource("2_g3iia")
+centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_5hmbo")
+shape = SubResource("CircleShape2D_i2cnt")
