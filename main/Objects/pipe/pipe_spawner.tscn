@@ -5,8 +5,3 @@
 [node name="pipe_spawner" type="Node2D"]
 position = Vector2(193, 197)
 script = ExtResource("1_ebsu2")
-
-[node name="timer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
