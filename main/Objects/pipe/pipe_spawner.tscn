@@ -1,7 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://ifn11462n7tb"]
 
-[ext_resource type="Script" path="res://Objects/pipe/pipe_spawner.gd" id="1_ebsu2"]
+[ext_resource type="Script" path="res://Objects/pipe/pipe_controller.gd" id="1_ox8qn"]
 
-[node name="pipe_spawner" type="Node2D"]
-position = Vector2(193, 197)
-script = ExtResource("1_ebsu2")
+[node name="pipe_controller" type="Node2D"]
+position = Vector2(192, 130)
+script = ExtResource("1_ox8qn")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
