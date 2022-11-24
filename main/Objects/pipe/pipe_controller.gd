@@ -39,6 +39,7 @@ func _on_timer_timeout():			# this is connected using a signal from the child ti
 	offset = randf_range(gapRange.x,gapRange.y)
 	spawn_pipe(-generalPosition)
 	spawn_pipe(generalPosition)
+	get_parent().addPipesSpawned(1)
 	get_node("Timer").start(spawn_speed)
 
 func spawn_pipe(generalPosition):
