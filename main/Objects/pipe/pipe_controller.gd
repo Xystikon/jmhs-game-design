@@ -5,6 +5,7 @@ extends Node2D
 @export var pipe_speed  = 1.0
 
 var pipeNode = preload("res://Objects/pipe/pipe.tscn")		# preloading the pipe scene from the file tree (not in the node tree) to instance later
+var pointzoneNode = preload("res://Objects/pointgap/pointgap.tscn")
 	
 @export var gapRange = Vector2(-60, 60)
 var offset = 0 # the amount the center of the walls meet (normally at the center of the screen) move in pixels
@@ -22,6 +23,7 @@ func _on_game_started():
 func start_pipes():
 	print('pipes starting!')		# check debugger while the game is running.
 	spawn_pipe(-generalPosition)
+	spawn_pointzone()
 	spawn_pipe(generalPosition)
 	get_node("Timer").start(spawn_speed)		# starts the timer for a time of 'spawn_speed' (set above)
 func reset_pipes():
@@ -38,10 +40,19 @@ func _on_timer_timeout():			# this is connected using a signal from the child ti
 	# when the timer finishes, spawn a new pipe and restart the timer
 	offset = randf_range(gapRange.x,gapRange.y)
 	spawn_pipe(-generalPosition)
+	spawn_pointzone()
 	spawn_pipe(generalPosition)
 	get_parent().addPipesSpawned(1)
 	get_node("Timer").start(spawn_speed)
 
+func spawn_pointzone():
+	# instances new pointzone instances using the preloaded var set above
+	var pointzone = pointzoneNode.instantiate()	# instances the pipe using the preloaded var
+	pointzone.move_speed = pipe_speed		# accesses the custom 'move_speed' variable used in the pointgap script (check pointgap.gd) (it moves using that script)
+	self.add_sibling(pointzone) # sets the new pointzone to be the sibling of the pipe spawner
+	pointzone.add_to_group("pipes")
+	print("spawned pointzone")
+	pointzone.position = self.position #spawns exactly where the spawner is
 func spawn_pipe(generalPosition):
 	# instances new pipe instances using the preloaded var set above
 	var new_pipe = pipeNode.instantiate()	# instances the pipe using the preloaded var

@@ -1,21 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ng14cihsup6y"]
+[gd_scene load_steps=5 format=3 uid="uid://hpn8yrkdtotr"]
 
-[ext_resource type="Script" path="res://Levels/level01/level.gd" id="1_ctrjc"]
+[ext_resource type="Script" path="res://Levels/level.gd" id="1_ctrjc"]
 [ext_resource type="PackedScene" uid="uid://bcfh13am2wv0w" path="res://Player/Player.tscn" id="1_n6cc0"]
 [ext_resource type="PackedScene" uid="uid://b5xq0fla2im1e" path="res://Levels/level01/ground.tscn" id="2_ikcb4"]
 [ext_resource type="PackedScene" uid="uid://ifn11462n7tb" path="res://Objects/pipe/pipe_spawner.tscn" id="3_baxws"]
 
-[node name="level01" type="Node2D" node_paths=PackedStringArray("pipeController", "player")]
+[node name="level01" type="Node2D" node_paths=PackedStringArray("pipeController", "player", "playerSpawnpoint")]
 script = ExtResource("1_ctrjc")
 pipeController = NodePath("pipe_controller")
-player = NodePath("Player")
-
-[node name="Player" parent="." instance=ExtResource("1_n6cc0")]
-position = Vector2(42, 151)
-gravity_scale = 0.0
-max_contacts_reported = 1
-contact_monitor = true
-FLAP_FORCE = -300
+player = NodePath("pipe_controller/Player")
+playerSpawnpoint = NodePath("player_spawnpoint")
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(91, 159)
@@ -28,4 +22,10 @@ z_index = 2
 
 [node name="pipe_controller" parent="." instance=ExtResource("3_baxws")]
 
-[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+[node name="Player" parent="pipe_controller" instance=ExtResource("1_n6cc0")]
+position = Vector2(-150, 21)
+gravity_scale = 0.0
+FLAP_FORCE = -300
+
+[node name="player_spawnpoint" type="Node2D" parent="."]
+position = Vector2(42, 152)

@@ -33,4 +33,8 @@ func flap():
 
 func _on_body_entered(body):
 	print("hit")
-	get_parent().restartGame()
+	print(get_parent())
+	get_parent().get_parent().restartGame()
+	#if get_parent().get_path().get_name() == "level":
+		
+	
