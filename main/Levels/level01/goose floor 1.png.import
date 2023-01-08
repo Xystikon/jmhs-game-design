@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://x1tc8n2kslj7"
-path="res://.godot/imported/goose_resting.png-62a4d12ca674d7de95bd0abf4b14cd14.ctex"
+uid="uid://cumdcw22ysj16"
+path="res://.godot/imported/goose floor 1.png-763212f1da0d018e3c8765b8d0c4c458.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/goose_resting.png"
-dest_files=["res://.godot/imported/goose_resting.png-62a4d12ca674d7de95bd0abf4b14cd14.ctex"]
+source_file="res://Levels/level01/goose floor 1.png"
+dest_files=["res://.godot/imported/goose floor 1.png-763212f1da0d018e3c8765b8d0c4c458.ctex"]
 
 [params]
 

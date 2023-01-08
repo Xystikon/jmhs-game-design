@@ -29,3 +29,12 @@ func _physics_process(_delta):						# _physics_process() is a built-in function 
 func flap():
 	linear_velocity.y = FLAP_FORCE
 	angular_velocity = -8.0
+
+
+func _on_body_entered(body):
+	print("hit")
+	print(get_parent())
+	get_parent().get_parent().restartGame()
+	#if get_parent().get_path().get_name() == "level":
+		
+	

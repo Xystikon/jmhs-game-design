@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://daanxbdf0dnq4"]
+
+[ext_resource type="Script" path="res://Objects/pipe/pipe.gd" id="1_npero"]
+[ext_resource type="Texture2D" uid="uid://dmuqxyh8ikwy7" path="res://Objects/pipe/Pole.png" id="2_tyk05"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujof1"]
+size = Vector2(14, 320)
+
+[node name="pipe" type="StaticBody2D"]
+script = ExtResource("1_npero")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, -1.13249e-06)
+scale = Vector2(0.875, 20)
+texture = ExtResource("2_tyk05")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ujof1")
+debug_color = Color(0.454902, 0.431373, 0.482353, 1)
