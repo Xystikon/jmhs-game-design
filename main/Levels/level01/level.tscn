@@ -1,20 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://hpn8yrkdtotr"]
+[gd_scene load_steps=7 format=3 uid="uid://bqq0yhpa84j6o"]
 
 [ext_resource type="Script" path="res://Levels/level.gd" id="1_ctrjc"]
 [ext_resource type="PackedScene" uid="uid://bcfh13am2wv0w" path="res://Player/Player.tscn" id="1_n6cc0"]
 [ext_resource type="PackedScene" uid="uid://b5xq0fla2im1e" path="res://Levels/level01/ground.tscn" id="2_ikcb4"]
 [ext_resource type="PackedScene" uid="uid://ifn11462n7tb" path="res://Objects/pipe/pipe_spawner.tscn" id="3_baxws"]
-[ext_resource type="PackedScene" uid="uid://cr0tyqkwldoh7" path="res://Objects/background.tscn" id="5_ysb6b"]
+[ext_resource type="PackedScene" uid="uid://cr0tyqkwldoh7" path="res://Objects/background/background.tscn" id="5_aw0j2"]
 
-[node name="level01" type="Node2D" node_paths=PackedStringArray("pipeController", "background", "player", "playerSpawnpoint")]
+[sub_resource type="LabelSettings" id="LabelSettings_bo0l6"]
+
+[node name="level01" type="Node2D" node_paths=PackedStringArray("pipeController", "background", "player", "playerSpawnpoint", "scoreCount")]
 script = ExtResource("1_ctrjc")
 pipeController = NodePath("pipe_controller")
 background = NodePath("background")
 player = NodePath("pipe_controller/Player")
 playerSpawnpoint = NodePath("player_spawnpoint")
+scoreCount = NodePath("score_count")
 
-[node name="background" parent="." instance=ExtResource("5_ysb6b")]
-position = Vector2(81, 135)
+[node name="background" parent="." instance=ExtResource("5_aw0j2")]
+position = Vector2(13, 146)
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(91, 159)
@@ -30,7 +33,14 @@ z_index = 2
 [node name="Player" parent="pipe_controller" instance=ExtResource("1_n6cc0")]
 position = Vector2(-150, 21)
 gravity_scale = 0.0
-FLAP_FORCE = -300
 
 [node name="player_spawnpoint" type="Node2D" parent="."]
 position = Vector2(42, 152)
+
+[node name="score_count" type="Label" parent="."]
+offset_left = 81.0
+offset_top = 21.0
+offset_right = 121.0
+offset_bottom = 47.0
+text = "hi"
+label_settings = SubResource("LabelSettings_bo0l6")

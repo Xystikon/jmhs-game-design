@@ -14,6 +14,7 @@ extends Node2D
 @export var playerPreload = preload("res://Player/Player.tscn")
 @export var player = get_node("Player")
 @export var playerSpawnpoint = get_node("player_spawnpoint")
+@export var scoreCount = get_node("score_count")
 
 # set variables
 var pipesSpawned = 1
@@ -23,6 +24,12 @@ var pipesPassedThrough = 0
 signal game_started
 signal game_over
 signal game_reset
+
+func _ready():
+	scoreCount.text = '0'
+
+func _process(delta):
+	scoreCount.text = str(pipesPassedThrough)
 
 func addPipesPassedThrough(pipes):
 	pipesPassedThrough += pipes
@@ -57,6 +64,3 @@ func restartGame():
 
 func resetPipes():
 	pipeController.reset_pipes()
-
-func _process(delta):
-	print(pipesPassedThrough)

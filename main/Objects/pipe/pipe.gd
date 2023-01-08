@@ -9,3 +9,6 @@ func _process(delta):					# runs constantly
 	# once it reaches past the screen, delete the instance
 	if global_position.x < 0:
 		self.queue_free()
+	
+	if global_position.x == get_parent().player.global_position.x:
+		print('hi')

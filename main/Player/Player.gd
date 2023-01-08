@@ -2,7 +2,7 @@
 extends RigidBody2D
 
 # '@export' makes the variable accessible from the Inspector--the info on the right when you click on the Player node
-@export var FLAP_FORCE = -400
+@export var FLAP_FORCE = -300
 
 # godot 4 uses radians for rotation, so we convert the degrees to radians using deg_to_rad() (there's probably a better way of doing this)
 const MAX_ROTATION = deg_to_rad(-30.0)
