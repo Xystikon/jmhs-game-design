@@ -11,4 +11,4 @@ func _process(delta):					# runs constantly
 		self.queue_free()
 	
 	if global_position.x == get_parent().player.global_position.x:
-		print('hi')
+		get_parent().addPipesPassedThrough(0.5)

@@ -29,6 +29,7 @@ editor_draw_limits = true
 z_index = 2
 
 [node name="pipe_controller" parent="." instance=ExtResource("3_baxws")]
+gapDistance = 60
 
 [node name="Player" parent="pipe_controller" instance=ExtResource("1_n6cc0")]
 position = Vector2(-150, 21)
